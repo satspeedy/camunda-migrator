@@ -1,0 +1,34 @@
+{
+  "migrations": [
+    {
+      "migrationPlan": {
+        "sourceProcessDefinitionKey": "Billing_Cost_Allocation",
+        "sourceProcessVersionTag": "9_4-Sprint_2-1",
+        "targetProcessDefinitionKey": "Billing_Cost_Allocation",
+        "targetProcessVersionTag": "9_4-Sprint_3-1",
+        "instructions": []
+      },
+      "skipIoMappings": true,
+      "skipCustomListeners": true,
+      "processInstanceQuery": {
+        "processDefinitionKey": "Billing_Cost_Allocation",
+        "processVersionTag": "9_4-Sprint_2-1"
+      }
+    },
+    {
+      "migrationPlan": {
+        "sourceProcessDefinitionKey": "Import_And_Update_Contract_Order_Process",
+        "sourceProcessVersionTag": "9_4-Sprint_2-1",
+        "targetProcessDefinitionKey": "Import_And_Update_Contract_Order_Process",
+        "targetProcessVersionTag": "9_4-Sprint_3-1",
+        "instructions": []
+      },
+      "skipIoMappings": true,
+      "skipCustomListeners": true,
+      "processInstanceQuery": {
+        "processDefinitionKey": "Import_And_Update_Contract_Order_Process",
+        "processVersionTag": "9_4-Sprint_2-1"
+      }
+    }
+  ]
+}

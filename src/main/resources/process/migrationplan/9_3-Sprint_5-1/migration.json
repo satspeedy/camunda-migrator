@@ -1,0 +1,18 @@
+{
+  "migrations" : [{
+    "migrationPlan" : {
+      "sourceProcessDefinitionKey": "Billing_Cost_Allocation",
+      "sourceProcessVersionTag": "9_3-Sprint_3-1",
+      "targetProcessDefinitionKey": "Billing_Cost_Allocation",
+      "targetProcessVersionTag": "9_3-Sprint_5-1",
+      "instructions" : []
+    },
+    "skipIoMappings" : true,
+    "skipCustomListeners" : true,
+    "processInstanceQuery" : {
+      "processDefinitionKey": "Billing_Cost_Allocation",
+      "processVersionTag": "9_3-Sprint_3-1"
+    }
+  }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "modifications": [
+    {
+      "sourceProcessDefinitionKey": "Billing_Cost_Allocation",
+      "sourceProcessVersionTag": "9_4-Sprint_1-3",
+      "skipCustomListeners": true,
+      "skipIoMappings": true,
+      "instructions": [
+        {
+          "type": "addVariable",
+          "activityId": "ServiceTask_Create_Final_Invoice",
+          "variables": {
+            "provideDocumentsPrintOption": {
+              "type": "String",
+              "value": "CENTRAL"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sourceProcessDefinitionKey": "Billing_Cost_Allocation",
+      "sourceProcessVersionTag": "9_4-Sprint_1-3",
+      "skipCustomListeners": true,
+      "skipIoMappings": true,
+      "instructions": [
+        {
+          "type": "addVariable",
+          "activityId": "ReceiveTask_Retrieve_Final_Invoice_Numbers",
+          "variables": {
+            "provideDocumentsPrintOption": {
+              "type": "String",
+              "value": "CENTRAL"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sourceProcessDefinitionKey": "Billing_Cost_Allocation",
+      "sourceProcessVersionTag": "9_4-Sprint_1-3",
+      "skipCustomListeners": true,
+      "skipIoMappings": true,
+      "instructions": [
+        {
+          "type": "addVariable",
+          "activityId": "ServiceTask_Validate_Final_Invoice_Numbers",
+          "variables": {
+            "provideDocumentsPrintOption": {
+              "type": "String",
+              "value": "CENTRAL"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sourceProcessDefinitionKey": "Billing_Cost_Allocation",
+      "sourceProcessVersionTag": "9_4-Sprint_1-3",
+      "skipCustomListeners": true,
+      "skipIoMappings": true,
+      "instructions": [
+        {
+          "type": "addVariable",
+          "activityId": "UserTask_Final_Invoice_Interface_Error",
+          "variables": {
+            "provideDocumentsPrintOption": {
+              "type": "String",
+              "value": "CENTRAL"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sourceProcessDefinitionKey": "Billing_Cost_Allocation",
+      "sourceProcessVersionTag": "9_4-Sprint_1-3",
+      "skipCustomListeners": true,
+      "skipIoMappings": true,
+      "instructions": [
+        {
+          "type": "addVariable",
+          "activityId": "UserTask_Check_Delay_Reason_Of_Final_Invoice_Numbers",
+          "variables": {
+            "provideDocumentsPrintOption": {
+              "type": "String",
+              "value": "CENTRAL"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sourceProcessDefinitionKey": "Billing_Cost_Allocation",
+      "sourceProcessVersionTag": "9_4-Sprint_1-3",
+      "skipCustomListeners": true,
+      "skipIoMappings": true,
+      "instructions": [
+        {
+          "type": "addVariable",
+          "activityId": "UserTask_Correct_Numbers_For_Existing_Final_Invoice",
+          "variables": {
+            "provideDocumentsPrintOption": {
+              "type": "String",
+              "value": "CENTRAL"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "sourceProcessDefinitionKey": "Billing_Cost_Allocation",
+      "sourceProcessVersionTag": "9_4-Sprint_1-3",
+      "skipCustomListeners": true,
+      "skipIoMappings": true,
+      "instructions": [
+        {
+          "type": "addVariable",
+          "activityId": "UserTask_Correct_Numbers_For_Non_Existing_Final_Invoice",
+          "variables": {
+            "provideDocumentsPrintOption": {
+              "type": "String",
+              "value": "CENTRAL"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "migrations" : [{
+    "migrationPlan" : {
+      "sourceProcessDefinitionKey": "Billing_Consumption_Calculation",
+      "sourceProcessVersionTag": "9_3-Sprint_3-1",
+      "targetProcessDefinitionKey": "Billing_Consumption_Calculation",
+      "targetProcessVersionTag": "9_4-Sprint_1-1",
+      "instructions" : [
+      {
+        "sourceActivityIds": [
+          "UserTask_Check_For_Invoicing_Related_Informations"
+        ],
+        "targetActivityIds": [
+          "UserTask_Display_Invoicing_Related_Information"
+        ],
+        "updateEventTrigger": false
+      }]
+    },
+    "skipIoMappings" : true,
+    "skipCustomListeners" : true,
+    "processInstanceQuery" : {
+      "processDefinitionKey": "Billing_Consumption_Calculation",
+      "processVersionTag": "9_3-Sprint_3-1"
+    }
+  }
+  ]
+}

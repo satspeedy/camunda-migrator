@@ -1,0 +1,18 @@
+{
+  "migrations" : [{
+    "migrationPlan" : {
+      "sourceProcessDefinitionKey": "Billing_Create_Service_Invoice",
+      "sourceProcessVersionTag": "9_3-Sprint_3-1",
+      "targetProcessDefinitionKey": "Billing_Create_Service_Invoice",
+      "targetProcessVersionTag": "9_3-Sprint_4-1",
+      "instructions" : []
+    },
+    "skipIoMappings" : true,
+    "skipCustomListeners" : true,
+    "processInstanceQuery" : {
+      "processDefinitionKey": "Billing_Create_Service_Invoice",
+      "processVersionTag": "9_3-Sprint_3-1"
+    }
+  }
+  ]
+}

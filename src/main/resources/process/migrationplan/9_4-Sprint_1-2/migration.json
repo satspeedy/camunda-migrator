@@ -1,0 +1,34 @@
+{
+  "migrations" : [
+    {
+      "migrationPlan": {
+      "sourceProcessDefinitionKey": "Billing_Completion",
+      "sourceProcessVersionTag": "9_3-Sprint_3-1",
+      "targetProcessDefinitionKey": "Billing_Completion",
+      "targetProcessVersionTag": "9_4-Sprint_1-2",
+      "instructions": []
+    },
+    "skipIoMappings": true,
+    "skipCustomListeners": true,
+    "processInstanceQuery": {
+      "processDefinitionKey": "Billing_Completion",
+      "processVersionTag": "9_3-Sprint_3-1"
+    }
+  },
+  {
+    "migrationPlan": {
+      "sourceProcessDefinitionKey": "Billing_Manual_Service_Invoice_Creation",
+      "sourceProcessVersionTag": "9_3-Sprint_3-1",
+      "targetProcessDefinitionKey": "Billing_Manual_Service_Invoice_Creation",
+      "targetProcessVersionTag": "9_4-Sprint_1-2",
+      "instructions": []
+    },
+    "skipIoMappings": true,
+    "skipCustomListeners": true,
+    "processInstanceQuery": {
+      "processDefinitionKey": "Billing_Manual_Service_Invoice_Creation",
+      "processVersionTag": "9_3-Sprint_3-1"
+    }
+  }
+  ]
+}

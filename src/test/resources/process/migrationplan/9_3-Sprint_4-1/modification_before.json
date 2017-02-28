@@ -1,0 +1,26 @@
+{
+  "modifications": [
+    {
+      "sourceProcessDefinitionKey": "Billing_Create_Service_Invoice",
+      "sourceProcessVersionTag": "9_3-Sprint_3-1",
+      "skipCustomListeners": true,
+      "skipIoMappings": true,
+      "instructions": [
+        {
+          "type": "startBeforeActivity",
+          "activityId": "StartEvent_Create_Service_Invoice",
+          "variables": {
+            "_afterMigrationReturnPoint": {
+              "type": "String",
+              "value": "RecieveTask_Create_Service_Invoice"
+            }
+          }
+        },
+        {
+          "type": "cancel",
+          "activityId": "ServiceTask_Create_Service_Invoice"
+        }
+      ]
+    }
+  ]
+}
