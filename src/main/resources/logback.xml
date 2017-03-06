@@ -10,8 +10,8 @@
     </appender>
 
     <appender name="gelf" class="biz.paluch.logging.gelf.logback.GelfLogbackAppender">
-        <host>${GRAYLOG_HOST:-udp:localhost}</host>
-        <port>${GRAYLOG_PORT:-9000}</port>
+        <host>${LOG_HOST:-udp:localhost}</host>
+        <port>${LOG_PORT:-9000}</port>
         <version>1.1</version>
         <facility>java-test</facility>
         <extractStackTrace>true</extractStackTrace>
