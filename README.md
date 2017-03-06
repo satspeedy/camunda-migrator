@@ -159,13 +159,6 @@ Die Datei kann z. B. wie folgt aussehen:
 }
 ```
 
-## Process migration
-
-
-
-
-
-
 ## How to use it?
 This chapter describes the usage of the `Camunda-Migrator` to migrate processes. 
 The Tool recognizes by itself, which process versions are already inserted in the database, and which are not.
