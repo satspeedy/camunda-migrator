@@ -15,7 +15,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -32,7 +31,7 @@ import java.io.IOException;
 @Import(SpringProcessEngineServicesConfiguration.class)
 public class CamundaProcessEngineConfiguration {
 
-    @Value("${camunda.bpm.history-level:none}")
+    @Value("${camunda.bpm.history-level:full}")
     private String historyLevel;
 
     @Autowired
@@ -61,10 +60,6 @@ public class CamundaProcessEngineConfiguration {
         config.setJobExecutorActivate(false);
         config.setMetricsEnabled(false);
         config.setIdGenerator(idGenerator());
-
-        // deploy all processes from folder 'processes'
-//    Resource[] resources = resourceLoader.getResources("classpath:/processes/*.bpmn");
-//    config.setDeploymentResources(resources);
 
         return config;
     }

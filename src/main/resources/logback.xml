@@ -9,21 +9,44 @@
         </encoder>
     </appender>
 
-    <appender name="gelf" class="biz.paluch.logging.gelf.logback.GelfLogbackAppender">
-        <host>${LOG_HOST:-udp:localhost}</host>
-        <port>${LOG_PORT:-9000}</port>
-        <version>1.1</version>
-        <facility>java-test</facility>
-        <extractStackTrace>true</extractStackTrace>
-        <filterStackTrace>true</filterStackTrace>
-        <timestampPattern>yyyy-MM-dd HH:mm:ss,SSSS</timestampPattern>
-        <maximumMessageSize>8192</maximumMessageSize>
-        <includeFullMdc>true</includeFullMdc>
+    <!-- GrayLog Appender -->
+    <!--<appender name="GRAYLOG-GELF-UDP" class="biz.paluch.logging.gelf.logback.GelfLogbackAppender">-->
+        <!--<host>${LOG_HOST:-udp:localhost}</host>-->
+        <!--<port>${LOG_PORT:-9000}</port>-->
+        <!--<version>1.1</version>-->
+        <!--<facility>java-test</facility>-->
+        <!--<extractStackTrace>true</extractStackTrace>-->
+        <!--<filterStackTrace>true</filterStackTrace>-->
+        <!--<timestampPattern>yyyy-MM-dd HH:mm:ss,SSSS</timestampPattern>-->
+        <!--<maximumMessageSize>8192</maximumMessageSize>-->
+        <!--<includeFullMdc>true</includeFullMdc>-->
+    <!--</appender>-->
+
+    <!-- PaperTrail Appender -->
+    <appender name="PAPERTRAIL-SYSLOG-TCP" class="com.papertrailapp.logback.Syslog4jAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%-5level %logger{35}: %m%n%xEx</pattern>
+        </layout>
+
+        <syslogConfig class="org.productivity.java.syslog4j.impl.net.udp.UDPNetSyslogConfig">
+            <!-- remote system to log to -->
+            <host>${LOG_HOST:-localhost}</host>
+            <!-- remote port to log to -->
+            <port>${LOG_PORT:-8080}</port>
+            <!-- program name to log as -->
+            <ident>camunda-migrator</ident>
+            <!-- max log message length in bytes -->
+            <maxMessageLength>128000</maxMessageLength>
+            <!-- hide local information -->
+            <sendLocalName>false</sendLocalName>
+            <sendLocalTimestamp>false</sendLocalTimestamp>
+        </syslogConfig>
     </appender>
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />
-        <appender-ref ref="gelf" />
+        <!--<appender-ref ref="GRAYLOG-GELF-UDP" />-->
+        <appender-ref ref="PAPERTRAIL-SYSLOG-TCP" />
     </root>
 
 </configuration>

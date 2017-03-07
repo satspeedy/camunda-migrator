@@ -7,11 +7,11 @@ Der Funktionsumfang umfasst:
 * die Prozessmigration und
 * das setzen von Prozessvariablen. 
 
-Weiter unten sind die Funktionen detaillierter beschrieben. 
+Die Funktionen sind weiter unten detaillierter beschrieben. 
 Es kann als Maven-Projektsubmodul in das entsprechende Projekt eingebunden werden.
 
-Während der Ausführung werden die Informationen im zentralen Log-System (z.B. Graylog) ausgeloggt, 
-lokal wird es auf der Konsole ausgegeben.
+Während der Ausführung werden die Informationen im zentralen Log-System (z.B. PapterTrail oder Graylog) ausgeloggt 
+und lokal wird es auf der Konsole ausgegeben.
 
 Der Tooleinsatz ist unter `How to use it?` dokumentiert.
 
@@ -164,7 +164,7 @@ This chapter describes the usage of the `Camunda-Migrator` to migrate processes.
 The Tool recognizes by itself, which process versions are already inserted in the database, and which are not.
 
 In every release a new version of this tool will be delivered. 
-How to define a process migration is described detailled in `Process migration`.
+How to define a process migration is described in detail in `Process migration`.
 
 Generally the following procedure should be observed to prevent any issues:
 1. Stop the running application server (e.g. WildFly)
@@ -175,34 +175,42 @@ Generally the following procedure should be observed to prevent any issues:
 
 ### CI Flow Integration
 * The Tool will build with each build process and executed on every stage (e.g. DEV, TEST, UAT, PREPROD, PROD).
-* Logging with a central logging system (e.g. GrayLog and additionally a local *.log file is created)
-* It should be executed after the database update to prevent any problems in combination of camunda version update and process migration!
+* Logging with a central logging system (e.g. PaperTrail or GrayLog) and additionally on console
+* It should be executed after a database update to prevent any problems in combination of camunda version update and process migration!
 
 ### Executing beyond CI Flow
 * The tool is build with each project build
-* Logging in console (additionally a local *.log file is created)
+* Logging in console
 
-You can execute it with the `dev` profile for local usage within your development environment
+You can execute it with the `dev` profile for local usage with your development environment.
+When you're in the folder of the jar file you can type:
 
+    java -Dspring.profiles.active=dev -jar camunda-migrator.jar migrate
+    
+Also, if you do not pass the `migrate` argument it will start as Command Line Interface:
+    
     java -Dspring.profiles.active=dev -jar camunda-migrator.jar
+    ...
+    Type migrate, info, help or exit as a command:
+    ...
 
-or pass specific environment variables to execute it:
+Alternatively you can override the arguments to pass specific environment variables to execute it, too:
 
-    java -DDB_HOST=192.168.50.10 -DDB_PORT=3306 -DDB_SCHEMA=ProcessEngine -DDB_USER=dev -DDB_PASS=dev -DLOG_HOST=udp:10.20.30.6 -DLOG_PORT=12211 -jar camunda-migrator.jar
-
+    java -DDB_HOST=192.168.188.101 -DDB_PORT=3306 -DDB_SCHEMA=process-engine -DDB_USER=dev -DDB_PASS=dev -DLOG_HOST=udp:192.168.188.101 -DLOG_PORT=12211 -jar camunda-migrator.jar migrate
+    
 ### Necessary Environment Variables
 The following environment variables are necessary to execute the tool. 
 Otherwise an error occured for missing values and no defaults are defined. Primary they are used to connect to database and central logging system.
 
-| Key           | Description                                       |
-| ------------- |---------------------------------------------------|
-| DB_HOST	    | Database Host (e.g. 192.168.50.10)                | 
-| DB_PORT	    | Database Port (e.g. 3306)                         | 
-| DB_SCHEMA	    | Database Schema (e.g. ProcessEngine)              | 
-| DB_USER	    | Database User (e.g. dev)                          | 
-| DB_PASS	    | Database User Password (e.g. dev)                 | 
-| LOG_HOST	    | Central Logging System Host (e.g. udp:10.20.30.6) | 
-| LOG_PORT	    | Central Logging System Port (e.g. 12211)          | 
+| Key           | Description                                            |
+| ------------- |--------------------------------------------------------|
+| DB_HOST	    | Database Host (e.g. 192.168.188.101)                   | 
+| DB_PORT	    | Database Port (e.g. 3306)                              | 
+| DB_SCHEMA	    | Database Schema (e.g. process-engine)                  | 
+| DB_USER	    | Database User (e.g. dev)                               | 
+| DB_PASS	    | Database User Password (e.g. dev)                      | 
+| LOG_HOST	    | Central Logging System Host (e.g. udp:192.168.188.101) | 
+| LOG_PORT	    | Central Logging System Port (e.g. 12211)               | 
 
 ### Log Results
 If a the migration was successful the result output will contain the following line:

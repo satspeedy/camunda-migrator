@@ -17,20 +17,12 @@ public class ProcessMigrationToolApplicationTest {
 	private ProcessMigrationToolApplication processMigrationToolApplication;
 
 	@Mock
-	private ProcessInstanceMigrationService processInstanceMigrationServiceMock;
-
-	@Test
-	public void shouldStartMigration() {
-		// when
-		processMigrationToolApplication.doPostConstruct();
-		// then
-		verify(processInstanceMigrationServiceMock).migrate();
-	}
+	private ProcessMigrationToolRunner processMigrationToolRunnerMock;
 
 	@Test(expected = RuntimeException.class)
-	public void shouldEndMigrationWithExitCode() {
+	public void shouldEndMigrationWithExitCode() throws Exception {
 		//given
-		doThrow(new RuntimeException("Aborted")).when(processInstanceMigrationServiceMock).migrate();
+		doThrow(new RuntimeException("Aborted")).when(processMigrationToolRunnerMock).run();
 
 		// when
 		ProcessMigrationToolApplication.main(new String[]{});
