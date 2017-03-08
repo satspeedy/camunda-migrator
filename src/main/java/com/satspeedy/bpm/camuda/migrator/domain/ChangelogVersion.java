@@ -4,9 +4,37 @@ package com.satspeedy.bpm.camuda.migrator.domain;
  *  Changelog version.
  */
 public class ChangelogVersion {
+
+  private String deploymentName;
+  private String deploymentSource;
+  private boolean deployChangedOnly;
   private String versionTag;
   private String archiveFile;
   private String migrationFolder;
+
+  public String getDeploymentName() {
+    return deploymentName;
+  }
+
+  public void setDeploymentName(String deploymentName) {
+    this.deploymentName = deploymentName;
+  }
+
+  public String getDeploymentSource() {
+    return deploymentSource;
+  }
+
+  public void setDeploymentSource(String deploymentSource) {
+    this.deploymentSource = deploymentSource;
+  }
+
+  public boolean isDeployChangedOnly() {
+    return deployChangedOnly;
+  }
+
+  public void setDeployChangedOnly(boolean deployChangedOnly) {
+    this.deployChangedOnly = deployChangedOnly;
+  }
 
   public String getVersionTag() {
     return versionTag;

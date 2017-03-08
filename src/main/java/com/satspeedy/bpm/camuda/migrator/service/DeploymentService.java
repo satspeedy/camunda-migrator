@@ -22,9 +22,6 @@ public class DeploymentService {
 
   private static final Logger LOG = LoggerFactory.getLogger(DeploymentService.class);
 
-  public static final String DEPLOYMENT_NAME = "pcs";
-  public static final String DEPLOYMENT_SOURCE = "process application";
-  public static final boolean DEPLOY_CHANGED_ONLY = true;
   public static final String CLASSPATH_TO_ARCHIVE_FILES = "classpath:/process/archive/";
 
   @Autowired
@@ -70,9 +67,9 @@ public class DeploymentService {
     Objects.requireNonNull(zipResource);
     repositoryService.createDeployment()
       .addZipInputStream(zipResourceService.openZipResource(zipResource))
-      .name(DEPLOYMENT_NAME)
-      .source(DEPLOYMENT_SOURCE)
-      .enableDuplicateFiltering(DEPLOY_CHANGED_ONLY)
+      .name(changelogVersion.getDeploymentName())
+      .source(changelogVersion.getDeploymentSource())
+      .enableDuplicateFiltering(changelogVersion.isDeployChangedOnly())
       .deploy();
   }
 

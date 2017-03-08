@@ -1,43 +1,70 @@
 {
   "versionsOrdered": [
     {
+      "deploymentName": "pcs",
+      "deploymentSource": "process application",
+      "deployChangedOnly": true,
       "versionTag": "9_3-Sprint_3-1",
       "archiveFile": "9_3-Sprint_3-1.zip"
     },
     {
+      "deploymentName": "pcs",
+      "deploymentSource": "process application",
+      "deployChangedOnly": true,
       "versionTag": "9_3-Sprint_4-1",
       "archiveFile": "9_3-Sprint_4-1.zip"
     },
     {
+      "deploymentName": "pcs",
+      "deploymentSource": "process application",
+      "deployChangedOnly": true,
       "versionTag": "9_3-Sprint_5-1",
       "archiveFile": "https://www.dropbox.com/s/8cqkt0aieeim37o/9_3-Sprint_5-1.zip?dl=1",
       "migrationFolder": "9_3-Sprint_5-1"
     },
     {
+      "deploymentName": "pcs",
+      "deploymentSource": "process application",
+      "deployChangedOnly": true,
       "versionTag": "9_4-Sprint_1-1",
       "archiveFile": "9_4-Sprint_1-1.zip",
       "migrationFolder": "9_4-Sprint_1-1"
     },
     {
+      "deploymentName": "pcs",
+      "deploymentSource": "process application",
+      "deployChangedOnly": true,
       "versionTag": "9_4-Sprint_1-2",
       "archiveFile": "9_4-Sprint_1-2.zip",
       "migrationFolder": "9_4-Sprint_1-2"
     },
     {
+      "deploymentName": "pcs",
+      "deploymentSource": "process application",
+      "deployChangedOnly": true,
       "versionTag": "9_4-Sprint_1-3",
       "archiveFile": "9_4-Sprint_1-3.zip",
       "migrationFolder": "9_4-Sprint_1-3"
     },
     {
+      "deploymentName": "pcs",
+      "deploymentSource": "process application",
+      "deployChangedOnly": true,
       "versionTag": "9_4-Sprint_1-4",
       "archiveFile": "9_4-Sprint_1-4.zip"
     },
     {
+      "deploymentName": "pcs",
+      "deploymentSource": "process application",
+      "deployChangedOnly": true,
       "versionTag": "9_4-Sprint_2-1",
       "archiveFile": "9_4-Sprint_2-1.zip",
       "migrationFolder": "9_4-Sprint_2-1"
     },
     {
+      "deploymentName": "pcs",
+      "deploymentSource": "process application",
+      "deployChangedOnly": true,
       "versionTag": "9_4-Sprint_3-1",
       "archiveFile": "9_4-Sprint_3-1.zip",
       "migrationFolder": "9_4-Sprint_3-1"

@@ -61,9 +61,15 @@ public class DeploymentServiceTest {
 
     ChangelogVersion changelogVersion = new ChangelogVersion();
     changelogVersion.setArchiveFile(resourceFileName);
+    String deploymentName = "deploymentName";
+    changelogVersion.setDeploymentName(deploymentName);
+    String deploymentSource = "deploymentSource";
+    changelogVersion.setDeploymentSource(deploymentSource);
+    boolean deployChangedOnly = true;
+    changelogVersion.setDeployChangedOnly(deployChangedOnly);
 
     when(zipResourceServiceMock.loadZipResource(CLASSPATH_TO_ARCHIVE_FILES + resourceFileName)).thenReturn(resource);
-    when(repositoryServiceMock.createDeployment().addZipInputStream(any(ZipInputStream.class)).name(DeploymentService.DEPLOYMENT_NAME).source(DeploymentService.DEPLOYMENT_SOURCE).enableDuplicateFiltering(DeploymentService.DEPLOY_CHANGED_ONLY)).thenReturn(deploymentBuilderMock);
+    when(repositoryServiceMock.createDeployment().addZipInputStream(any(ZipInputStream.class)).name(deploymentName).source(deploymentSource).enableDuplicateFiltering(deployChangedOnly)).thenReturn(deploymentBuilderMock);
     when(repositoryServiceMock.createProcessDefinitionQuery().versionTag(any()).list()).thenReturn(Collections.emptyList());
 
     // when
@@ -112,10 +118,16 @@ public class DeploymentServiceTest {
 
     ChangelogVersion changelogVersion = new ChangelogVersion();
     changelogVersion.setArchiveFile(resourceFileName);
+    String deploymentName = "deploymentName";
+    changelogVersion.setDeploymentName(deploymentName);
+    String deploymentSource = "deploymentSource";
+    changelogVersion.setDeploymentSource(deploymentSource);
+    boolean deployChangedOnly = true;
+    changelogVersion.setDeployChangedOnly(deployChangedOnly);
 
     when(zipResourceServiceMock.downloadZipResource(changelogVersion.getArchiveFile(), changelogVersion.getVersionTag())).thenReturn(resourcePath);
     when(zipResourceServiceMock.loadZipResource(resourcePath)).thenReturn(resource);
-    when(repositoryServiceMock.createDeployment().addZipInputStream(any(ZipInputStream.class)).name(DeploymentService.DEPLOYMENT_NAME).source(DeploymentService.DEPLOYMENT_SOURCE).enableDuplicateFiltering(DeploymentService.DEPLOY_CHANGED_ONLY)).thenReturn(deploymentBuilderMock);
+    when(repositoryServiceMock.createDeployment().addZipInputStream(any(ZipInputStream.class)).name(deploymentName).source(deploymentSource).enableDuplicateFiltering(deployChangedOnly)).thenReturn(deploymentBuilderMock);
     when(repositoryServiceMock.createProcessDefinitionQuery().versionTag(any()).list()).thenReturn(Collections.emptyList());
 
     // when
