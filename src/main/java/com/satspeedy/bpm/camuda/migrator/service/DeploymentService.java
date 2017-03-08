@@ -43,9 +43,17 @@ public class DeploymentService {
    */
   public void deploy(ChangelogVersion changelogVersion) {
     LOG.info("Starting deployment for version tag {} with migration file {}", changelogVersion.getVersionTag(), changelogVersion.getArchiveFile());
+
+    String zipResourcePath;
+    if (changelogVersion.getArchiveFile().toLowerCase().contains("http") || changelogVersion.getArchiveFile().toLowerCase().contains("ftp")) {
+      zipResourcePath = zipResourceService.downloadZipResource(changelogVersion.getArchiveFile(), changelogVersion.getVersionTag());
+    } else {
+      zipResourcePath = CLASSPATH_TO_ARCHIVE_FILES + changelogVersion.getArchiveFile();
+    }
+
     Resource zipResource;
     try {
-      zipResource = zipResourceService.loadZipResource(CLASSPATH_TO_ARCHIVE_FILES + changelogVersion.getArchiveFile());
+      zipResource = zipResourceService.loadZipResource(zipResourcePath);
     } catch (IOException e) {
       throw new IllegalMigrationStateException("zip resource loading failed for version tag " + changelogVersion.getVersionTag(), e);
     }

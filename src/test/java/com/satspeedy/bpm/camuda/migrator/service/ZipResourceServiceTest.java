@@ -7,9 +7,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.ResourcePatternResolver;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.zip.ZipEntry;
@@ -28,6 +30,9 @@ public class ZipResourceServiceTest {
 
   @Mock
   private ResourcePatternResolver resourceLoaderMock;
+
+  @Mock
+  private FileService fileServiceMock;
 
   @Test
   public void shouldLoadZipResource() throws IOException {
@@ -79,5 +84,24 @@ public class ZipResourceServiceTest {
     verify(zipResourceService).createHashForFile(zipInputStream, zipEntryName);
     assertThat(result, hasSize(1));
     assertThat(result, hasItem(hash));
+  }
+
+  @Test
+  public void shouldDownloadZipResource() {
+    // given
+    String url = "http://www.example.com/archive.zip";
+    String fileName = "filename";
+    String fileNameSuffix = ".zip";
+    File file = mock(File.class);
+    when(file.getPath()).thenReturn("C:/Users/TST/AppData/Local/Temp/filename.zip");
+
+    when(fileServiceMock.createTempFile(fileName, fileNameSuffix, true)).thenReturn(file);
+    when(fileServiceMock.copyURLToFile(url, file)).thenReturn(file);
+
+    // when
+    String filePath = zipResourceService.downloadZipResource(url, fileName);
+
+    // then
+    assertThat(filePath, equalTo("file:C:/Users/TST/AppData/Local/Temp/filename.zip"));
   }
 }

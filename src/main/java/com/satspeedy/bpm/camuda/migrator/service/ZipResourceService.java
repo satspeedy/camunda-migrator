@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
 import java.io.BufferedInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -23,8 +24,14 @@ import java.util.zip.ZipInputStream;
 @Service
 public class ZipResourceService {
 
+  private static final String FILE_NAME_SUFFIX_ZIP = ".zip";
+  private static final String FILE_RESOURCE_PREFIX = "file:";
+
   @Autowired
   private ResourcePatternResolver resourceLoader;
+
+  @Autowired
+  private FileService fileService;
 
   /**
    * Load zip resource.
@@ -83,4 +90,18 @@ public class ZipResourceService {
     byte[] bytes = IoUtil.readInputStream(inputStream, fileEntry);
     return DigestUtils.md5DigestAsHex(bytes);
   }
+
+  /**
+   * Download zip resource and save as file in system temp directory.
+   *
+   * @param url url (e.g. https://www.cloudbox.com/Release_1_0-Sprint_2-1.zip)
+   * @param fileName file name prefix (e.g. filename) without suffix
+   * @return file path with prefix 'file:' (e.g. file:C:\Users\...\AppData\Local\Temp\Release_1_0-Sprint_2-1.zip)
+   */
+  protected String downloadZipResource(String url, String fileName) {
+    File file = fileService.createTempFile(fileName, FILE_NAME_SUFFIX_ZIP, true);
+    file = fileService.copyURLToFile(url, file);
+    return FILE_RESOURCE_PREFIX + file.getPath();
+  }
+
 }

@@ -100,7 +100,30 @@ public class DeploymentServiceTest {
     verify(deploymentBuilderMock, never()).deploy();
   }
 
+  @Test
+  public void shouldDownloadZipResourceWhenArchiveFileContainsAnUrl() throws IOException {
+    // given
+    final String resourcePath = "file:C:/Users/TST/AppData/Local/Temp/Release_1_0-Sprint_1-1.zip";
+    final String resourceFileName = "http://www.example.com/Release_1_0-Sprint_1-1.zip";
+    final Resource resource = mock(Resource.class);
+    InputStream inputStreamResource = mock(InputStream.class);
+    when(resource.getInputStream()).thenReturn(inputStreamResource);
+    when(resource.getFilename()).thenReturn(resourceFileName);
 
+    ChangelogVersion changelogVersion = new ChangelogVersion();
+    changelogVersion.setArchiveFile(resourceFileName);
+
+    when(zipResourceServiceMock.downloadZipResource(changelogVersion.getArchiveFile(), changelogVersion.getVersionTag())).thenReturn(resourcePath);
+    when(zipResourceServiceMock.loadZipResource(resourcePath)).thenReturn(resource);
+    when(repositoryServiceMock.createDeployment().addZipInputStream(any(ZipInputStream.class)).name(DeploymentService.DEPLOYMENT_NAME).source(DeploymentService.DEPLOYMENT_SOURCE).enableDuplicateFiltering(DeploymentService.DEPLOY_CHANGED_ONLY)).thenReturn(deploymentBuilderMock);
+    when(repositoryServiceMock.createProcessDefinitionQuery().versionTag(any()).list()).thenReturn(Collections.emptyList());
+
+    // when
+    deploymentService.deploy(changelogVersion);
+
+    // then
+    verify(deploymentBuilderMock, times(1)).deploy();
+  }
 
   @Test
   public void shouldAssertVersionIsAlreadyDeployedAndZipFileHasNoChanges() {
