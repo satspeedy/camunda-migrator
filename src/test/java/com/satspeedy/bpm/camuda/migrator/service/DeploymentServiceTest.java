@@ -109,8 +109,8 @@ public class DeploymentServiceTest {
   @Test
   public void shouldDownloadZipResourceWhenArchiveFileContainsAnUrl() throws IOException {
     // given
-    final String resourcePath = "file:C:/Users/TST/AppData/Local/Temp/Release_1_0-Sprint_1-1.zip";
-    final String resourceFileName = "http://www.example.com/Release_1_0-Sprint_1-1.zip";
+    final String resourcePath = "file:C:/Users/TST/AppData/Local/Temp/Release_1.0-Sprint_1-Change-1.zip";
+    final String resourceFileName = "http://www.example.com/Release_1.0-Sprint_1-Change-1.zip";
     final Resource resource = mock(Resource.class);
     InputStream inputStreamResource = mock(InputStream.class);
     when(resource.getInputStream()).thenReturn(inputStreamResource);
