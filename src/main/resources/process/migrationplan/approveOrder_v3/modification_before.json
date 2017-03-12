@@ -1,0 +1,26 @@
+{
+  "modifications": [
+    {
+      "sourceProcessDefinitionKey": "Process_ApproveOrder",
+      "sourceProcessVersionTag": "approveOrder_v2",
+      "skipCustomListeners": true,
+      "skipIoMappings": true,
+      "instructions": [
+        {
+          "type": "startBeforeActivity",
+          "activityId": "StartEvent_1",
+          "variables": {
+            "_afterMigrationReturnPoint": {
+              "type": "String",
+              "value": "Task_0pyjcdd"
+            }
+          }
+        },
+        {
+          "type": "cancel",
+          "activityId": "Task_117ilnv"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "modifications": [
+    {
+      "sourceProcessDefinitionKey": "Process_ApproveOrder",
+      "sourceProcessVersionTag": "approveOrder_v3",
+      "skipCustomListeners": true,
+      "skipIoMappings": true,
+      "instructions": [
+        {
+          "type": "addVariable",
+          "activityId": "Task_0pyjcdd",
+          "variables": {
+            "valid": {
+              "type": "Boolean",
+              "value": "true"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

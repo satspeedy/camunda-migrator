@@ -14,6 +14,14 @@
       "versionTag": "approveOrder_v2",
       "archiveFile": "approveOrder_v2.zip",
       "migrationFolder": "approveOrder_v2"
+    },
+    {
+      "deploymentName": "camuda-migrator-demo",
+      "deploymentSource": "process application",
+      "deployChangedOnly": true,
+      "versionTag": "approveOrder_v3",
+      "archiveFile": "https://www.dropbox.com/s/jrl4vnytyz448bd/approveOrder_v3.zip?dl=1",
+      "migrationFolder": "approveOrder_v3"
     }
   ]
 }

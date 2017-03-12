@@ -1,0 +1,19 @@
+{
+  "migrations": [
+    {
+      "migrationPlan": {
+        "sourceProcessDefinitionKey": "Process_ApproveOrder",
+        "sourceProcessVersionTag": "approveOrder_v2",
+        "targetProcessDefinitionKey": "Process_ApproveOrder",
+        "targetProcessVersionTag": "approveOrder_v3",
+        "instructions": []
+      },
+      "skipIoMappings": true,
+      "skipCustomListeners": true,
+      "processInstanceQuery": {
+        "processDefinitionKey": "Process_ApproveOrder",
+        "processVersionTag": "approveOrder_v2"
+      }
+    }
+  ]
+}
