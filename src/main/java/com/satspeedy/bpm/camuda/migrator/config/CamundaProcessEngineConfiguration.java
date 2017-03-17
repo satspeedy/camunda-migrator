@@ -53,7 +53,7 @@ public class CamundaProcessEngineConfiguration {
         config.setDataSource(dataSource);
         config.setDatabaseSchemaUpdate("NOOP"); //set to an non existing value to skip database checking and updating completely
         // see https://app.camunda.com/jira/browse/CAM-2097
-        config.setDatabaseType("mysql");
+        config.setDatabaseType("postgres"); // h2, mysql, oracle, postgres, mssql, db2 or mariadb
         config.setTransactionManager(transactionManager());
         config.setHistory(historyLevel);
         config.setJobExecutorDeploymentAware(true);
