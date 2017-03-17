@@ -12,7 +12,7 @@
       "deploymentSource": "process application",
       "deployChangedOnly": true,
       "versionTag": "approveOrder_v2",
-      "archiveFile": "approveOrder_v2.zip",
+      "archiveFile": "https://www.dropbox.com/s/v4cc8u9i68yzx67/approveOrder_v2.zip?dl=1",
       "migrationFolder": "approveOrder_v2"
     },
     {
