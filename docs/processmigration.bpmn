@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.1.1">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.8.0">
   <bpmn:collaboration id="Collaboration_1rt2qje">
-    <bpmn:participant id="Participant_1te8ffd" name="Prozessmigraion" processRef="Process_1" />
+    <bpmn:participant id="Participant_1te8ffd" name="Process Migration" processRef="Process_1" />
   </bpmn:collaboration>
   <bpmn:process id="Process_1" isExecutable="false">
     <bpmn:laneSet>
-      <bpmn:lane id="Lane_15dbj05" name="Entiwickler">
+      <bpmn:lane id="Lane_15dbj05" name="Developer">
         <bpmn:flowNodeRef>Task_0zxx5zf</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_0b8dw5c</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
@@ -21,15 +21,15 @@
         <bpmn:flowNodeRef>BoundaryEvent_0hoefnx</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
-    <bpmn:task id="Task_0zxx5zf" name="Veränderte Prozesse als Zip-Archiv zum Admin Tool hinzufügen">
+    <bpmn:task id="Task_0zxx5zf" name="Add modified processes as zip archive to the migration tool">
       <bpmn:incoming>SequenceFlow_148d5g4</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1him09f</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Task_0b8dw5c" name="Prozess Migrationsplan mit Camunda Cockpit erstellen">
+    <bpmn:task id="Task_0b8dw5c" name="Create process migration plan with Camunda Cockpit">
       <bpmn:incoming>SequenceFlow_1him09f</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1o2wl0l</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:startEvent id="StartEvent_1" name="Prozessmodell modifiziert">
+    <bpmn:startEvent id="StartEvent_1" name="Process model modified">
       <bpmn:outgoing>SequenceFlow_13itgsz</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="SequenceFlow_148d5g4" sourceRef="IntermediateCatchEvent_09r2fo3" targetRef="Task_0zxx5zf" />
@@ -37,12 +37,12 @@
     <bpmn:sequenceFlow id="SequenceFlow_1him09f" sourceRef="Task_0zxx5zf" targetRef="Task_0b8dw5c" />
     <bpmn:sequenceFlow id="SequenceFlow_1o2wl0l" sourceRef="Task_0b8dw5c" targetRef="ExclusiveGateway_1xhcdcz" />
     <bpmn:sequenceFlow id="SequenceFlow_13itgsz" sourceRef="StartEvent_1" targetRef="Task_0z8eejg" />
-    <bpmn:intermediateCatchEvent id="IntermediateCatchEvent_09r2fo3" name="Am Story/Feature-Ende">
+    <bpmn:intermediateCatchEvent id="IntermediateCatchEvent_09r2fo3" name="On story/feature end">
       <bpmn:incoming>SequenceFlow_0dyix4g</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_148d5g4</bpmn:outgoing>
       <bpmn:timerEventDefinition />
     </bpmn:intermediateCatchEvent>
-    <bpmn:task id="Task_0z8eejg" name="Version Tag zu veränderten Prozessen hinzufügen">
+    <bpmn:task id="Task_0z8eejg" name="Add &#34;Version Tag&#34; to modified processes">
       <bpmn:incoming>SequenceFlow_13itgsz</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0dyix4g</bpmn:outgoing>
     </bpmn:task>
@@ -55,31 +55,31 @@
     <bpmn:sequenceFlow id="SequenceFlow_0n9xo08" sourceRef="ExclusiveGateway_1xhcdcz" targetRef="Task_1bhfocn" />
     <bpmn:sequenceFlow id="SequenceFlow_0h5xav4" sourceRef="Task_1t779vb" targetRef="ExclusiveGateway_1xhcdcz" />
     <bpmn:sequenceFlow id="SequenceFlow_0wl0o65" sourceRef="Task_1igfhgo" targetRef="Task_1t779vb" />
-    <bpmn:task id="Task_1igfhgo" name="Prozess Modifikatinsplan mit Camunda Cockpit erstellen">
+    <bpmn:task id="Task_1igfhgo" name="Create process modification plan with Camunda Cockpit">
       <bpmn:incoming>SequenceFlow_1spzv9e</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0wl0o65</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:boundaryEvent id="BoundaryEvent_0hoefnx" name="Nicht migrierbare Prozesse existieren" attachedToRef="Task_0b8dw5c">
+    <bpmn:boundaryEvent id="BoundaryEvent_0hoefnx" name="Non-migratable processes exist" attachedToRef="Task_0b8dw5c">
       <bpmn:outgoing>SequenceFlow_1spzv9e</bpmn:outgoing>
       <bpmn:errorEventDefinition />
     </bpmn:boundaryEvent>
-    <bpmn:task id="Task_1t779vb" name="Prozess Modifikationsplan überarbeiten">
+    <bpmn:task id="Task_1t779vb" name="Modify the process modification plan">
       <bpmn:incoming>SequenceFlow_0wl0o65</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0h5xav4</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Task_1bhfocn" name="Prozess Migrationsplan&#10;überarbeiten">
+    <bpmn:task id="Task_1bhfocn" name="Modify the process migration plan">
       <bpmn:incoming>SequenceFlow_0n9xo08</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_105ivdh</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Task_0xge2yr" name="Prozess Changelog erweitern">
+    <bpmn:task id="Task_0xge2yr" name="Extend process changelog">
       <bpmn:incoming>SequenceFlow_105ivdh</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0yhqr1c</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Task_0vcywkg" name="Prozess&#10;migration&#10;testen">
+    <bpmn:task id="Task_0vcywkg" name="Testing process migration ">
       <bpmn:incoming>SequenceFlow_0yhqr1c</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_106dxei</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:endEvent id="EndEvent_1dyk254" name="Veränderte Prozess sind migrierbar">
+    <bpmn:endEvent id="EndEvent_1dyk254" name="Changed processes can be migrated">
       <bpmn:incoming>SequenceFlow_106dxei</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_105ivdh" sourceRef="Task_1bhfocn" targetRef="Task_0xge2yr" />
@@ -89,23 +89,23 @@
     <bpmn:association id="Association_1nsj5rw" sourceRef="Task_0b8dw5c" targetRef="TextAnnotation_006qgo9" />
     <bpmn:association id="Association_086srq2" sourceRef="Task_0xge2yr" targetRef="TextAnnotation_0no6sp6" />
     <bpmn:association id="Association_03n18d2" sourceRef="StartEvent_1" targetRef="TextAnnotation_01469bl" />
-    <bpmn:textAnnotation id="TextAnnotation_006qgo9">    <bpmn:text><![CDATA[- Für jeden veränderten Prozess
-- Füge Migrationsplan als JSON zum Admin Tool hinzu]]></bpmn:text>
+    <bpmn:textAnnotation id="TextAnnotation_006qgo9">    <bpmn:text><![CDATA[- For every changed process
+- Add migration plan as JSON to the migration tool]]></bpmn:text>
 </bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_01469bl">    <bpmn:text>Prozessmodell/e wurde/n im Rahmen eines Sprints überarbeitet</bpmn:text>
+    <bpmn:textAnnotation id="TextAnnotation_01469bl">    <bpmn:text>Process model(s) have been modified</bpmn:text>
 </bpmn:textAnnotation>
     <bpmn:association id="Association_11km12s" sourceRef="Task_1igfhgo" targetRef="TextAnnotation_0cuxjc2" />
-    <bpmn:textAnnotation id="TextAnnotation_0cuxjc2">    <bpmn:text><![CDATA[- Für jeden nicht migrierbaren Prozess 
-- Füge Modifikationsplan als JSON zum Admin Tool hinzu]]></bpmn:text>
+    <bpmn:textAnnotation id="TextAnnotation_0cuxjc2">    <bpmn:text><![CDATA[- For any non-migratable process
+- Add modification plan as JSON to the migration tool]]></bpmn:text>
 </bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_1j4fhj8">    <bpmn:text>ProcessDefinitionKey und ProcessVersionTag hinzufügen</bpmn:text>
+    <bpmn:textAnnotation id="TextAnnotation_1j4fhj8">    <bpmn:text>Add ProcessDefinitionKey and ProcessVersionTag</bpmn:text>
 </bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_0no6sp6">    <bpmn:text>process-changelg.json um die neue Migration erweitern</bpmn:text>
+    <bpmn:textAnnotation id="TextAnnotation_0no6sp6">    <bpmn:text>Extend process-changelg.json with the new migration</bpmn:text>
 </bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_089hn3c">    <bpmn:text>ProcessDefinitionKey und ProcessVersionTag hinzufügen</bpmn:text>
+    <bpmn:textAnnotation id="TextAnnotation_089hn3c">    <bpmn:text>Add ProcessDefinitionKey and ProcessVersionTag</bpmn:text>
 </bpmn:textAnnotation>
     <bpmn:association id="Association_1js0btw" sourceRef="Task_1t779vb" targetRef="TextAnnotation_089hn3c" />
-    <bpmn:textAnnotation id="TextAnnotation_1b1ve9h">    <bpmn:text>Lokal ausführen</bpmn:text>
+    <bpmn:textAnnotation id="TextAnnotation_1b1ve9h">    <bpmn:text>Perform locally</bpmn:text>
 </bpmn:textAnnotation>
     <bpmn:association id="Association_18fy749" sourceRef="Task_0vcywkg" targetRef="TextAnnotation_1b1ve9h" />
   </bpmn:process>
@@ -117,13 +117,13 @@
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="162" y="106" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="135" y="142" width="90" height="20" />
+          <dc:Bounds x="144" y="142" width="72" height="24" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="IntermediateCatchEvent_09r2fo3_di" bpmnElement="IntermediateCatchEvent_09r2fo3">
         <dc:Bounds x="445" y="106" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="418" y="142" width="90" height="20" />
+          <dc:Bounds x="428" y="142" width="71" height="36" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Task_0z8eejg_di" bpmnElement="Task_0z8eejg">
@@ -142,7 +142,7 @@
         <dc:Bounds x="945" y="-16" width="190" height="38" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_006qgo9_di" bpmnElement="TextAnnotation_006qgo9">
-        <dc:Bounds x="705" y="-36" width="161" height="78" />
+        <dc:Bounds x="692" y="-36" width="174" height="79" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Task_0xge2yr_di" bpmnElement="Task_0xge2yr">
         <dc:Bounds x="1203" y="84" width="100" height="80" />
@@ -156,7 +156,7 @@
       <bpmndi:BPMNShape id="EndEvent_1dyk254_di" bpmnElement="EndEvent_1dyk254">
         <dc:Bounds x="1580" y="106" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1553" y="142" width="90" height="20" />
+          <dc:Bounds x="1555" y="146" width="64" height="36" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_13itgsz_di" bpmnElement="SequenceFlow_13itgsz">
@@ -206,8 +206,8 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_1nsj5rw_di" bpmnElement="Association_1nsj5rw">
-        <di:waypoint xsi:type="dc:Point" x="786" y="84" />
-        <di:waypoint xsi:type="dc:Point" x="786" y="42" />
+        <di:waypoint xsi:type="dc:Point" x="784" y="84" />
+        <di:waypoint xsi:type="dc:Point" x="782" y="43" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_086srq2_di" bpmnElement="Association_086srq2">
         <di:waypoint xsi:type="dc:Point" x="1268" y="84" />
@@ -240,7 +240,7 @@
       <bpmndi:BPMNShape id="BoundaryEvent_0hoefnx_di" bpmnElement="BoundaryEvent_0hoefnx">
         <dc:Bounds x="718" y="146" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="737.297" y="180" width="90" height="20" />
+          <dc:Bounds x="741" y="180" width="83" height="36" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Task_1igfhgo_di" bpmnElement="Task_1igfhgo">
