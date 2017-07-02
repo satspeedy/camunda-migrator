@@ -1,5 +1,6 @@
 # Camunda-Migrator
 This tool helps you to have continuously a current process state with the latest features.
+
 Therefor all previous process versions will be migrated to the newest process definition version.
 
 It can be used to interact with the process engine from outside the application server and deliver information for a automatic process instance migration. 
@@ -14,11 +15,11 @@ The logging system can be configured as a Logback Appender via ![logback.xml](/s
 The main functions are:
 * `Process Instance Migration`
 * `Modifying Process Variables`
+
 The main functions are described in more detail below.
 
 ## How to run it?
-This chapter describes the usage of this tool. 
-`Camunda-Migrator` recognizes by itself, which process versions are already inserted in the database, and which are not.
+This chapter describes the usage of this tool. It recognizes by itself, which process versions are already inserted in the database, and which are not.
 
 Generally the following procedure should be observed to prevent any issues:
 1. Stop the running application server (e.g. WildFly)
@@ -52,8 +53,11 @@ Alternatively you can override the arguments to pass specific environment variab
     java -DDB_HOST=192.168.188.101 -DDB_PORT=5432 -DDB_SCHEMA=process-engine -DDB_USER=dev -DDB_PASS=dev -DLOG_HOST=udp:192.168.188.101 -DLOG_PORT=12211 -jar camunda-migrator.jar migrate
     
 ### Necessary Environment Variables
-The following environment variables are necessary to execute the tool. 
-Otherwise an error occured for missing values and no defaults are defined. Primary they are used to connect to database and central logging system.
+The following environment variables are necessary to execute the tool.
+
+Otherwise an error occured for missing values and no defaults are defined. 
+
+Primary they are used to connect to database and central logging system.
 
 | Key           | Description                                            |
 | ------------- |--------------------------------------------------------|
@@ -83,7 +87,7 @@ The rough procedure is visualized in the following figure
 ### Rough Technical Steps
 1. Determine Changelog entries and process in the given order
     1. Deploy the referenced zip archive in the Changelog entry 
-        1. Condition: If no process model has been deployed to the `version tag` or at least one process model has changed
+        1. Condition: If no process model has been deployed to the `Version Tag` or at least one process model has changed
 2. Modify the non-migratable instances using the referenced modification plan (modification_before.json) in the changelog entry 
     1. The modification plan is validated before modification
 3. Migrate using the referenced migration plan (migration.json) in the changelog entry 
