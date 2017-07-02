@@ -105,7 +105,7 @@ In the an error occurs, the complete migration is aborted.
     * ![Add VersionTag to Model](/docs/addVersionTagToModel.png "Add VersionTag to Model")
 * Add changed processes as zip archive to migration tool  
     * Important: The files must be exactly the same as the files stored in the repository, otherwise duplicate deployments will occur. In order to suppress automatic conversions to the format of the line ends, for _Git_ a .gitattributes file can be stored in the bpmn directory, which deactivates automatic conversions of Git for all contents under it.
-    * Add zip archiv in `Camunda-Migrator` to _src/main/resources/process/archive_
+    * Add zip archiv in `Camunda-Migrator` to _src/main/resources/process/archive_ or upload somewhere else and notice the url
     * ![Add VersionTag to Model Example](/docs/addVersionTagToModel-Example.png "Add VersionTag to Model Example")
 * Create a process migration plan
 * Create a process modification plan
