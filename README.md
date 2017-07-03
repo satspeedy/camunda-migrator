@@ -151,6 +151,26 @@ The modification_after.json` file can look like the following snippet:
 }
 ```
 
+## Contributing
+
+You are __more than welcome__ to take part on the development of this project!
+
+Clone the repository, add, fix or improve and send us a pull request.
+But please take care about the commit messages and have a look at this [wiki entry](https://github.com/erlang/otp/wiki/Writing-good-commit-messages).
+
+You can submit issues in the [Issues](https://github.com/satspeedy/camunda-migrator/issues/).
+
+## Help and support
+
+* Have a look at the [blog entry](https://thecattlecrew.net/2017/07/03/published-an-automation-tool-for-process-instance-migration-camunda-migrator/) at [CattleCrew Blog](https://thecattlecrew.net/)
+* Contact us via [e-mail](mailto:halil.hancioglu@opitz-consulting.com) 
+* Visit our website [http://www.opitz-consulting.com/](http://www.opitz-consulting.com/) to get more detailed info about us
+
+## License
+
+Copyright (c) 2017 Halil Hancioglu
+Licensed under the [MIT license](./LICENSE).
+
 ## Requirements
 Generally you need JDK 8+ and Maven 3.2.1+ for this project.    
 
