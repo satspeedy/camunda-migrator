@@ -33,7 +33,7 @@
         <postgresql.version>9.4.1212</postgresql.version>
         <logstash-gelf.version>1.10.0</logstash-gelf.version>
         <powermock.version>1.6.6</powermock.version>
-        <fasterxml.jackson.version>2.6.3</fasterxml.jackson.version>
+        <fasterxml.jackson.version>2.12.1</fasterxml.jackson.version>
         <javax.el-api.version>2.2.4</javax.el-api.version>
         <start-class>com.satspeedy.bpm.camuda.migrator.ProcessMigrationToolApplication</start-class>
     </properties>
